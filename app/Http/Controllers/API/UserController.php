@@ -61,6 +61,6 @@ class UserController extends Controller
             $token->delete();
         }
 
-        return response()->json(null, Response::HTTP_NO_CONTENT);
+        return response()->noContent();
     }
 }
