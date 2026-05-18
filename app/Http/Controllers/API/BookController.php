@@ -38,10 +38,10 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $data = $request->validate([
-            'title'   => ['required', 'string', 'min:3', 'max:255'],
-            'author'  => ['required', 'string', 'min:3', 'max:100'],
-            'summary' => ['required', 'string', 'min:10', 'max:500'],
-            'isbn'    => ['required', 'string', 'size:13', Rule::unique('books', 'isbn')->ignore($book->id)],
+            'title'   => ['sometimes', 'string', 'min:3', 'max:255'],
+            'author'  => ['sometimes', 'string', 'min:3', 'max:100'],
+            'summary' => ['sometimes', 'string', 'min:10', 'max:500'],
+            'isbn'    => ['sometimes', 'string', 'size:13', Rule::unique('books', 'isbn')->ignore($book->id)],
         ]);
 
         $book->update($data);
